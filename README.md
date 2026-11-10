@@ -45,19 +45,23 @@ cd frontend
 npm install
 ```
 
-Create `backend/.env` and add your API key:
+Create `backend/.env` from the example file and add your API key:
 
-```dotenv
-GNANI_API_KEY=your_gnani_api_key
+```powershell
+Copy-Item .env.example .env
 ```
+
+Edit `backend/.env` and replace `your_gnani_api_key` with your Gnani API key.
 
 Do not commit your `.env` file or expose the API key in frontend code.
 
 Start the backend from the `backend` folder:
 
 ```bash
-node server.js
+npm run dev
 ```
+
+For a normal start without development tooling, use `npm start` instead.
 
 Start the frontend from the `frontend` folder in another terminal:
 
