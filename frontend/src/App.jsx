@@ -41,7 +41,7 @@ export default function App() {
     }
   };
 
-  // 3. Send Recorded Audio Blob to Express Backend
+  // 3. Send Recorded Audio Blob to the same-origin Express API
   const handleAudioUpload = async () => {
     setLoading(true);
     const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/wav' });
@@ -49,7 +49,7 @@ export default function App() {
     formData.append('audio', audioBlob, 'recording.wav');
 
     try {
-      const res = await axios.post('http://localhost:5000/api/process-voice-order', formData, {
+      const res = await axios.post('/api/process-voice-order', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
 
